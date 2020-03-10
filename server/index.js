@@ -15,4 +15,4 @@ app.get('/', (req, res) => {
 
 //look at underlying environment and see what port we're using, or use port 5000
 const PORT = process.env.PORT || 5000;
-app.listen(5000);
+app.listen(PORT);
