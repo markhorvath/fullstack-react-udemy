@@ -62,3 +62,5 @@ google oauth (see commits or code comments)
 20. `npm install --save nodemon`
 21. in package.json, add "dev" to scripts with value "nodemon index.js" to
 start server in dev mode
+###REFACTORING
+22. Added routes/authRoutes.js and services/passport.js.  Refactored index.js
