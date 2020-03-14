@@ -95,4 +95,4 @@ After adding the new pw to keys.js I was able to connect.
   SUCCESSFUL AND IF NOT THROW WHATEVER ERROR**
 ##CODING MongoDB
 37. Created new folder + file: models/User.js to separate future models
-38. 
+38. Add library to help w/cookies: `npm install --save cookie-session`

@@ -19,6 +19,10 @@ module.exports = (app) => {
     })
   );
 
+  app.get('/api/current_user', (req, res) => {
+    res.send(req.user);
+  });
+
   //oauth callback route handler
   app.get('/auth/google/callback', passport.authenticate('google'));
 };

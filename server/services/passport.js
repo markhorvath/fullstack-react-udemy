@@ -5,6 +5,23 @@ const mongoose = require('mongoose');
 const keys = require('../config/keys');
 
 const User = mongoose.model('users');
+
+//SECTION 4 PART 43
+//user.id refers to the Mongodb created ID, not the google one
+//NOTE* in the DB it's _id
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+//first argument is whatever we stuffed into the cookie which was id
+//we're going to turn an id into a mongo instance
+passport.deserializeUser((id, done) => {
+  User.findById(id)
+  .then(user => {
+    done(null, user);
+  });
+})
+
 //passport.use() is a generic function to use a strategy
 //new GoogleStrategy creates new instance of passport strategy
 //callbackURL is for when users go to that path, we'll add a route handler forit

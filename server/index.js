@@ -2,6 +2,8 @@
 const express = require('express');
 const mongoose = require ('mongoose');
 const keys = require('./config/keys');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
 //had to switch the orders of these, passport needs User to run properly, but
 //User was getting loaded AFTER passport was trying to run
 require('./models/User');
@@ -20,6 +22,15 @@ mongoose
   .catch(err => console.log('Error on start: ' + err.stack));
 
 const app = express();
+
+app.use(
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: [keys.cookieKey]
+  })
+)
+app.use(passport.initialize());
+app.use(passport.session());
 
 //This is an IFFE, authRoutes exports the function which gets called immediately
 //with the app object as the argument
