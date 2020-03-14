@@ -27,7 +27,7 @@ git commit -m "restarting"
 git push heroku master
 17. I hadn't saved my index.js or readme files which weren't being committed,
 this caused the problems.  After running through 16 a 2nd time with the files
-committed, `heroku open` worked.  smh
+committed, `heroku open` worked.  smh (https://react-fullstack-trial.herokuapp.com/)
 ###FUTURE DEPLOYMENTS
 18. in server dir, run the following:
 - `git status`
@@ -64,3 +64,35 @@ google oauth (see commits or code comments)
 start server in dev mode
 ###REFACTORING
 22. Added routes/authRoutes.js and services/passport.js.  Refactored index.js
+##MONGODB SETUP
+23. www.mongodb.com/cloud/atlas, start free account
+24. Create cluster, leave all free default options selected
+25. Name the app, then click "Create Cluster"
+26. Click "Connect", then "Add Your Current IP Address"
+27. Create database user and pw, recommend using 'Autogenerate' (copy pw?), then "Create User"
+28. If successful, click "Choose a connection method"
+29. "Connect Your Application"
+30. Copy the address under "Connection String Only".  Replace <PASSWORD> with
+database user's password created earlier, then click Close
+31. Back in the app config/keys.js file, create 'mongoURI: ' key-value pair
+32. The value should be the entire Connection String used earlier w/user pw
+33. To connect index.js to this, use `mongoose.connect(keys.mongoURI)`
+34. `npm install --save mongoose`
+35. Was getting bad auth error when trying to connect to MongoDB, ultimately
+had to go into Mongo > Database Access > EDIT my user then regenerate pw.
+After adding the new pw to keys.js I was able to connect.  
+36. Replace earlier mongoose connect with the following:
+`mongoose
+  .connect(keys.mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch(err => console.log('Error on start: ' + err.stack));`
+  **REMEMBER FOR FUTURE: ALWAYS SETUP DB CONNECT FUNCTION TO LOG WHETHER ITS
+  SUCCESSFUL AND IF NOT THROW WHATEVER ERROR**
+##CODING MongoDB
+37. Created new folder + file: models/User.js to separate future models
+38. 

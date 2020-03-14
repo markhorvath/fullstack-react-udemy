@@ -4,10 +4,10 @@ const passport = require('passport');
 
 //we use module.exports to allow the 'const app = express()' line in index.js
 //to run the app.get handlers below within the => func.  it's why the argument
-//is app 
+//is app
 module.exports = (app) => {
   app.get('/', (req, res) => {
-    res.send({ hi: 'world' })
+    res.send({ hi: 'everyone' })
   });
 
   //the 'google' string is part of the new GoogleStrategy instance above, it's
