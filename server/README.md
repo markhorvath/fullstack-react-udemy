@@ -106,7 +106,6 @@ https://help.heroku.com/JS13Y78I/i-need-to-whitelist-heroku-dynos-what-are-ip-ad
 44. Enter new username and autogenerate password, copy password before 'Next'
 45. 'Choose a connection method', then 'Connect your Application'
 46. Copy the address under 'Connection String Only', replace PW
-mongodb+srv://user:vR89aUxlfvvTxtXp@cluster0-ombcc.mongodb.net/test?retryWrites=true&w=majority
 47. Go to google dev console, create new project for prod
 48. When configuring oauth consent screen, you must add the website domain
 49. Then you can add the redirect URI for the callback
