@@ -116,3 +116,4 @@ node_env, which tells us whether we're in dev or production
 52. keys.js determines whether in dev or prod, dev.js had dev keys and is not
 committed, prod.js uses variable names for keys that are stored on heroku.  
 53. Log into heroku, go to app > Settings > find Confige Variables, add them
+54. Add proxy: true to GoogleStrategy in passport.js, this solves issue with Redirect URI
