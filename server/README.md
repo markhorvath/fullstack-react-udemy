@@ -96,3 +96,23 @@ After adding the new pw to keys.js I was able to connect.
 ##CODING MongoDB
 37. Created new folder + file: models/User.js to separate future models
 38. Add library to help w/cookies: `npm install --save cookie-session`
+##ADDING PROD DATABASE
+39. Log into MongoDB, in upper left corner look for project dropdown, click new project
+40. Name it then Create Project.
+41. Build a Cluster, leave all 'Free' options for now, then Create Cluster
+42. Click Connect, Add a Different IP address, enter 0.0.0.0/0 and click 'Add'
+43. In a real production app you would typically have a static IP and a Fully Qualified Domain Name. In this case we would whitelist only the static IP. You can read up on this more here:
+https://help.heroku.com/JS13Y78I/i-need-to-whitelist-heroku-dynos-what-are-ip-address-ranges-in-use-at-heroku
+44. Enter new username and autogenerate password, copy password before 'Next'
+45. 'Choose a connection method', then 'Connect your Application'
+46. Copy the address under 'Connection String Only', replace PW
+mongodb+srv://user:vR89aUxlfvvTxtXp@cluster0-ombcc.mongodb.net/test?retryWrites=true&w=majority
+47. Go to google dev console, create new project for prod
+48. When configuring oauth consent screen, you must add the website domain
+49. Then you can add the redirect URI for the callback
+50. Create dev.js, move keys.js content over, dev.js will not be committed
+51. when you deploy your code to a server, there's an existing variable called
+node_env, which tells us whether we're in dev or production
+52. keys.js determines whether in dev or prod, dev.js had dev keys and is not
+committed, prod.js uses variable names for keys that are stored on heroku.  
+53. Log into heroku, go to app > Settings > find Confige Variables, add them

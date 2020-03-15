@@ -19,8 +19,20 @@ module.exports = (app) => {
     })
   );
 
-  app.get('/api/current_user', (req, res) => {
+  app.get('/api/logout'), (req, res) => {
+    req.logout();
+    // res.redirect('/');
     res.send(req.user);
+  }
+
+  app.get('/api/current_user', (req, res) => {
+    //this will test to ensure that someone who has already gone thru the oauth
+    //flow and logged in can get access to the user
+    res.send(req.user);
+    //req.session is an object, cookie-session library extracts cookie data out
+    //of hte cookie and assigns it to req.session.  Passportjs then looks at
+    //req.session, pulls the relevant data and passes to deserializeUser et al.
+    // res.send(req.session);
   });
 
   //oauth callback route handler
