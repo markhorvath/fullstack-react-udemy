@@ -116,3 +116,9 @@ node_env, which tells us whether we're in dev or production
 committed, prod.js uses variable names for keys that are stored on heroku.  
 53. Log into heroku, go to app > Settings > find Confige Variables, add them
 54. Add proxy: true to GoogleStrategy in passport.js, this solves issue with Redirect URI
+##CLIENT SIDE / REACT
+55. In server dir, `npx create-react-app client` (you can take client out of server in future)
+56. Add "client": "npm run start --prefix client" script to *server* package.json (--prefix client tells it to run in client dir)
+57. Add "dev": "concurrently \"npm run server\" \"npm run client\"" same as above,
+also changed the old "dev" script name to "server"
+58. In server, `npm install --save concurrently`
