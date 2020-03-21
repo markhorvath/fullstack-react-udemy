@@ -31,24 +31,24 @@ passport.use(new GoogleStrategy({
   callbackURL: '/auth/google/callback',
   proxy: true
 },
-  (accessToken, refreshToken, profile, done) => {
-    //find if One of the googleId already exists in the collection
-    User.findOne({ googleId: profile.id })
-      .then((existingUser) => {
-        if (existingUser) {
-          //we already have a record with the googleId
-          //done requires 2 objects, 1st is error and since we found a user here
-          //we can set it to null, the second object is the user record
-          done(null, existingUser);
-        } else {
-          //else we create a new user
-          //.save is what saves it to the DB
-          new User({ googleId: profile.id })
-            .save()
-            .then(user => done(null, user));
-            //the .then promise is used because creating a new user
-            //is async, once finished we take the user and call done on it
-        }
-      });
+//This was refactored to use async await
+  async (accessToken, refreshToken, profile, done) => {
+  //find if One of the googleId already exists in the collection
+  //This was refactored to use async await, got rid of else statement
+  //and just returned the value of done if (existingUser)
+  const existingUser = await User.findOne({ googleId: profile.id });
+      if (existingUser) {
+        //we already have a record with the googleId
+        //done requires 2 objects, 1st is error and since we found a user here
+        //we can set it to null, the second object is the user record
+        return done(null, existingUser);
+      }
+        //else we create a new user
+        //.save is what saves it to the DB
+        //This was refactored to use async await
+        const User = await new User({ googleId: profile.id }).save();
+        done(null, user);
+          //the .then promise is used because creating a new user
+          //is async, once finished we take the user and call done on it
   })
 );

@@ -121,4 +121,14 @@ committed, prod.js uses variable names for keys that are stored on heroku.
 56. Add "client": "npm run start --prefix client" script to *server* package.json (--prefix client tells it to run in client dir)
 57. Add "dev": "concurrently \"npm run server\" \"npm run client\"" same as above,
 also changed the old "dev" script name to "server"
-58. In server, `npm install --save concurrently`
+58. In server, `npm install --save concurrently`, lets npm run multiple commands/servers at once
+59. Made some adjustments to server dir package.json file
+60. Issue with proxy, had to run `npm install http-proxy-middleware@0.21.0` in *client* dir
+61. Create setupProxy.js in client/src, this is automatically looked for by the middleware we just installed
+62. Add the code to setup the proxy we want to use e(localhost:5000).
+63. Make sure you don't have the proxy in your client package.json
+64. This basically says that if anyone tries to use the specified relatives paths
+in our Client side react (/api, /auth/google), then use the designated url "localhost:5000"
+as a proxy for the domain.
+##DEVELOPING CLIENT SIDE
+65. 
