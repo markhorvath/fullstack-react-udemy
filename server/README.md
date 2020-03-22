@@ -131,4 +131,13 @@ also changed the old "dev" script name to "server"
 in our Client side react (/api, /auth/google), then use the designated url "localhost:5000"
 as a proxy for the domain.
 ##DEVELOPING CLIENT SIDE
-65. 
+65. Deleted all the default react stuff from npx create react app as usual
+66. In client/src create index.js for the data layer control (redux)
+67. In client/src/components create App.js for rendering layer control (react router)
+68. Remember there are TWO package.json files now, one in main server dir and
+one in the server/client dir, so navigate to client dir
+69. `npm install --save redux react-redux react-router-dom`
+70. Add react and reactDOM to index.js
+71. Add `import { Provider } from 'react-redux';` and `import { createStore, applyMiddleware } from 'redux';` to index.js
+72. Create redux store at top level of app (index.js), hook it up to react side of app
+by using the Provider tag and placing App component within it
