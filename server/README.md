@@ -136,8 +136,26 @@ as a proxy for the domain.
 67. In client/src/components create App.js for rendering layer control (react router)
 68. Remember there are TWO package.json files now, one in main server dir and
 one in the server/client dir, so navigate to client dir
+####REACT REDUX,
 69. `npm install --save redux react-redux react-router-dom`
 70. Add react and reactDOM to index.js
 71. Add `import { Provider } from 'react-redux';` and `import { createStore, applyMiddleware } from 'redux';` to index.js
 72. Create redux store at top level of app (index.js), hook it up to react side of app
 by using the Provider tag and placing App component within it
+####REDUCERS
+73. Create reducers folder, authReducer.js and index.js.  These will get sent to the store
+74. authReducer.js default returns state object, gets imported by reducers/index.js,
+then that reducers/index.js exports it as combineReducers with key value of 'auth' (our name)
+and then imported as reducers in the main index.js.  Then it's added as the first argument
+to combineReducers in index.js
+####REACT-ROUTER
+75. index.js kinda controls the data layer, App.js controls the View, which is related to the routes
+76. import {BrowseRouter, Route} from 'react-router-dom' in App.js
+77. Add <BroswerRouter> component to App.js, it can only have one child
+78. Add
+        `<div>
+          <Route path="/" component={Landing} />
+        </div>` to BrowserRouter component to test it's working
+79. Adding `exact` (short for exact={true}) attr to Route component ensures the 'to' path
+only renders when the path is exact.  In this case we add it for the Route to "/"
+80. 
