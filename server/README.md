@@ -158,4 +158,7 @@ to combineReducers in index.js
         </div>` to BrowserRouter component to test it's working
 79. Adding `exact` (short for exact={true}) attr to Route component ensures the 'to' path
 only renders when the path is exact.  In this case we add it for the Route to "/"
-80. 
+80. Created class based Header component
+81. Added Materialize CSS with `npm install --save materialize-css` in client, import it (index.js in this case)
+####ACTION CREATORS
+82. 
