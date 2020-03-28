@@ -161,4 +161,14 @@ only renders when the path is exact.  In this case we add it for the Route to "/
 80. Created class based Header component
 81. Added Materialize CSS with `npm install --save materialize-css` in client, import it (index.js in this case)
 ####ACTION CREATORS
-82. 
+82. in client, `npm install --save axios redux-thunk`
+83. import redux-thunk in index.js, pass it as argument to applyMiddleware
+The purpose of redux-thunk as the arg to applyMiddleware is to inspect whatever
+value we return from the action creators.  If redux-thunk sees we return a function
+instead of a normal action, redux-thunk will automatically call the function and
+pass in the dispatch function as an argument (see actions/index.js) ie dispatch is a function
+84. added /actions folder, and index.js / types.js within it
+85. NAs
+86. Refactored App.js to class-based component, added componentDidMount
+87. import { connect } from react-redux to make react and redux work together
+88. import all action creators from actions dir
