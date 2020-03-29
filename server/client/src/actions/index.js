@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { FETCH_USER } from './types';
 
-export const fetchUser = () => {
-  return function(dispatch) {
-    axios.get('/api/current_user')
-      .then(res => dispatch({ type: FETCH_USER, payload: res })
-      );
-  }
+//took out curly braces after the => and the rerturn keyword, if an => func
+//is only one return statement you don't need to included return or braces
+//also got rid of the function keyword and turned to => func, then added
+//async await and got rid of .then
+export const fetchUser = () => async (dispatch) => {
+    const res = await axios.get('/api/current_user');
+    dispatch({ type: FETCH_USER, payload: res });
 };
