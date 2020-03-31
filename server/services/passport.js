@@ -46,7 +46,7 @@ passport.use(new GoogleStrategy({
         //else we create a new user
         //.save is what saves it to the DB
         //This was refactored to use async await
-        const User = await new User({ googleId: profile.id }).save();
+        const user = await new User({ googleId: profile.id }).save();
         done(null, user);
           //the .then promise is used because creating a new user
           //is async, once finished we take the user and call done on it

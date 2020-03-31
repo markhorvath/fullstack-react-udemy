@@ -19,11 +19,12 @@ module.exports = (app) => {
     })
   );
 
-  app.get('/api/logout'), (req, res) => {
+  app.get('/api/logout', (req, res) => {
     req.logout();
-    // res.redirect('/');
-    res.send(req.user);
-  }
+    res.redirect('/');
+    //this was just sending an empter user model back, more for testing purposes at the time
+    // res.send(req.user);
+  });
 
   app.get('/api/current_user', (req, res) => {
     //this will test to ensure that someone who has already gone thru the oauth
@@ -36,5 +37,17 @@ module.exports = (app) => {
   });
 
   //oauth callback route handler
-  app.get('/auth/google/callback', passport.authenticate('google'));
+  //added (req, res) function to handle redirect after user successfully authentiates.
+  //redirect is built-in func (in passport i think)
+  //1. after user comes back from oauth flow (1st line)
+  //2. passport middleware takes over to authenticate succesful login, when done it
+  //passes the request on to the next handler in the chain (line 3)
+  //3. the function takes the request and response is to browser to redirect to /surveys
+  app.get(
+    '/auth/google/callback',
+    passport.authenticate('google'),
+    (req, res) => {
+      res.redirect('/surveys');
+    }
+  );
 };
