@@ -172,3 +172,13 @@ pass in the dispatch function as an argument (see actions/index.js) ie dispatch 
 86. Refactored App.js to class-based component, added componentDidMount
 87. import { connect } from react-redux to make react and redux work together
 88. import all action creators from actions dir
+####INSTALL STRIPE
+89. Signup with stripe.com and get test api keys
+90. `npm install --save react-stripe-checkout`
+91. Add keys to config files, setup new keys in heroku (https://dashboard.heroku.com/apps/APP-NAME/settings)
+####ENV VARIABLES ON REACT
+92. Info here https://create-react-app.dev/docs/adding-custom-environment-variables
+93. We'll create a permanent dev environment variable, but you could also create
+a temporary one through your shell
+94. these are client-side, so create .env files in client dir
+95. 
