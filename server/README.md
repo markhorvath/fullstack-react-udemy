@@ -181,4 +181,7 @@ pass in the dispatch function as an argument (see actions/index.js) ie dispatch 
 93. We'll create a permanent dev environment variable, but you could also create
 a temporary one through your shell
 94. these are client-side, so create .env files in client dir
-95. 
+####SETUP Stripe
+95. Created Payments component with react-checkout-stripe, it needs "amount,
+token, stripekey" attributes (the latter is the key we setup above)
+96. Render Payments in Header,
