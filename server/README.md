@@ -184,4 +184,6 @@ a temporary one through your shell
 ####SETUP Stripe
 95. Created Payments component with react-checkout-stripe, it needs "amount,
 token, stripekey" attributes (the latter is the key we setup above)
-96. Render Payments in Header,
+96. Render Payments in Header
+97. Added handleToken action creator in actions/index.js
+98. 
