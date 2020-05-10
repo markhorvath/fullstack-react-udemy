@@ -186,4 +186,14 @@ a temporary one through your shell
 token, stripekey" attributes (the latter is the key we setup above)
 96. Render Payments in Header
 97. Added handleToken action creator in actions/index.js
-98. 
+98. Added billingRoutes to /routes dir, wrote code for post request to stripe API
+99. `npm install --save stripe` in server dir, library allows us to make request to API
+100. installed body-parser (https://www.npmjs.com/package/body-parser)
+this is something required by express in order to parse post requests
+101. `npm install --save body-parser`
+102. `body-parser` apparently doesn't work, removed and use express.json() instead
+103. Server wasn't running, had to reinstall concurrently for some reason
+104. Added stripe.charges.create object to billingRoutes post req
+105. Added functionality to update user credits (also updated User schema in models dir)
+106. Added new middleware to check if user is logged in, add to billingRoutes
+107. 

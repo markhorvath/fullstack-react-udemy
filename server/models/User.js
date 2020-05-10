@@ -4,7 +4,8 @@ const { Schema } = mongoose; //destructured
 
 //we can freely add or remove properties to schemas
 const userSchema = new Schema({
-  googleId: String
+  googleId: String,
+  credits: { type: Number, default: 0 }
 });
 
 //This is how we create the actual class, users will be the name of the collection
