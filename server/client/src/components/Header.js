@@ -5,6 +5,7 @@ import Payments from './Payments';
 
 class Header extends Component {
   renderContent() {
+    console.log("header this.props.auth: ", this.props.auth);
     switch (this.props.auth) {
       case null:
         return;
@@ -16,6 +17,7 @@ class Header extends Component {
       //keys were just added to prevent error, since it's a 1-time render any key is fine
         return [
           <li key="1"><Payments /></li>,
+          <li style={{ margin: '0 10px'}} key="3">Credits: {this.props.auth.credits}</li>,
           <li key="2"><a href="/api/logout">Logout</a></li>
         ];
     }
