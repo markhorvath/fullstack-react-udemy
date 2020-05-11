@@ -196,4 +196,12 @@ this is something required by express in order to parse post requests
 104. Added stripe.charges.create object to billingRoutes post req
 105. Added functionality to update user credits (also updated User schema in models dir)
 106. Added new middleware to check if user is logged in, add to billingRoutes
-107. 
+####Redeploying to Production (Heroku)
+107. in client dir, run `npm run build`
+108. Add logic in main index.js to run certain code on production env only
+including to look for files in client/build (see comments)
+109. https://devcenter.heroku.com/articles/nodejs-support#build-behavior
+110. Add "heroku-postbuild": ""NPM_CONFIG_PRODUCTION=false npm install --prefix
+client && npm run build --prefix client" to scripts in server package.json
+111. --prefix client tells it to install whatever dependencies are in client dir
+and to run build on whatevers in client dir.  

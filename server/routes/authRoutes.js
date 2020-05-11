@@ -6,9 +6,9 @@ const passport = require('passport');
 //to run the app.get handlers below within the => func.  it's why the argument
 //is app
 module.exports = (app) => {
-  app.get('/', (req, res) => {
-    res.send({ hi: 'everyone' })
-  });
+  // app.get('/', (req, res) => {
+  //   res.send({ hi: 'everyone' })
+  // });
 
   //the 'google' string is part of the new GoogleStrategy instance above, it's
   //got an internal identifier of 'google' so thats how the passport.authenticate
