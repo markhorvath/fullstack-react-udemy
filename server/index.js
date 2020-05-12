@@ -8,6 +8,7 @@ const passport = require('passport');
 //had to switch the orders of these, passport needs User to run properly, but
 //User was getting loaded AFTER passport was trying to run
 require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 
 // mongoose.connect(keys.mongoURI).catch(error => console.log(error));
