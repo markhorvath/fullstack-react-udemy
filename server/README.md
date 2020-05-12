@@ -211,4 +211,8 @@ node version in "engine" is the same as on my local and is at least the LTS vers
 Also realized i had the Stripe publishableKey in gitignore on prod so had to remove that
 ####Mongoose for Survey Creation
 114. Setup Survey.js model for mongodb, require it in index.js
-115. 
+115. Created Recipient.js model, which is a subdocument of Survey.js
+116. Created SurveyRoutes.js in /routes dir, required it in index.js
+117. Update Survey.js with new schema key/values
+118. Created requireCredits.js middleware, very similar to requireLogin
+119. 

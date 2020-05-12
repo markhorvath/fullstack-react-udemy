@@ -45,6 +45,8 @@ app.use(passport.session());
 require('./routes/authRoutes')(app);
 //Added billingRoutes
 require('./routes/billingRoutes')(app);
+//Added surveyRoutes
+require('./routes/surveyRoutes')(app);
 
 //code to run only if we're on heroku / in production
 if (process.env.NODE_ENV === 'production') {
