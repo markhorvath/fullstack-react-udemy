@@ -15,7 +15,7 @@ const surveySchema = new Schema({
   no: { type: Number, default: 0 },
   _user: { type: Schema.Types.ObjectId, ref: 'User' },
   dateSent: Date,
-  lastResponsded: Date
+  lastResponded: Date
 });
 
 //This is how we create the actual class, users will be the name of the collection

@@ -12,11 +12,16 @@ module.exports = app => {
     const { title, subject, body, recipients } = req.body;
 
 //create instance of a Survey, lower survey to indicate its an instance
+//.map(email => ({ email })) is es6 condensing (email => { return { email: email }})
+//then we added .trim() because there was trailing whitespace in the emails 
+//req.user.id is an id created by mongodb for the user
     const survey = new Survey({
       title,
       subject,
       body,
-      recipients
+      recipients: recipients.split(',').map(email => ({ email: email.trim() })),
+      _user: req.user.id,
+      dateSent: Date.now()
     })
   });
 };

@@ -215,4 +215,6 @@ Also realized i had the Stripe publishableKey in gitignore on prod so had to rem
 116. Created SurveyRoutes.js in /routes dir, required it in index.js
 117. Update Survey.js with new schema key/values
 118. Created requireCredits.js middleware, very similar to requireLogin
-119. 
+119. Require mongoose in SurveyRoutes, setup survey instance, turn recipients
+from array of strings to array of objects w/email address
+120. 
