@@ -204,4 +204,17 @@ including to look for files in client/build (see comments)
 110. Add "heroku-postbuild": ""NPM_CONFIG_PRODUCTION=false npm install --prefix
 client && npm run build --prefix client" to scripts in server package.json
 111. --prefix client tells it to install whatever dependencies are in client dir
-and to run build on whatevers in client dir.  
+and to run build on whatevers in client dir.
+112. in server dir, git add ., git commit, git push heroku master
+113. Had to debug a couple things, make sure the server version of package.json
+node version in "engine" is the same as on my local and is at least the LTS version
+Also realized i had the Stripe publishableKey in gitignore on prod so had to remove that
+####Mongoose for Survey Creation
+114. Setup Survey.js model for mongodb, require it in index.js
+115. Created Recipient.js model, which is a subdocument of Survey.js
+116. Created SurveyRoutes.js in /routes dir, required it in index.js
+117. Update Survey.js with new schema key/values
+118. Created requireCredits.js middleware, very similar to requireLogin
+119. Require mongoose in SurveyRoutes, setup survey instance, turn recipients
+from array of strings to array of objects w/email address
+120.  
