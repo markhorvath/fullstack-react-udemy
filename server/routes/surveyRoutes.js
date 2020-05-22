@@ -28,6 +28,20 @@ module.exports = app => {
 
     //Sendgrid, from Mailer.js, this will send the actual email
     const mailer = new Mailer(survey, surveyTemplate(survey));
-    mailer.send();
+
+    //try to catch any error in any of these await funcs
+    try {
+      await mailer.send();
+      //await again because we want to make sure we wait for it to finish, this is
+      //saving the survey to the database
+      await survey.save();
+      req.user.credits -= 1;
+      const user = await req.user.save();
+
+      //sending back the user model with the updated credits
+      res.send(user);
+    } catch (err) {
+      res.status(422).send(err);
+    }
   });
 };
