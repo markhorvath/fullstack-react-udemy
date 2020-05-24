@@ -219,4 +219,7 @@ Also realized i had the Stripe publishableKey in gitignore on prod so had to rem
 from array of strings to array of objects w/email address
 120. There was more to this, but the sendgrid stuff was such a pain just skip it
 ####Client side surveys
-121. 
+121. Create Dashboard component, import {Link} in it to nav to /surveys/new
+#####ReduxForm Setup
+122. in client dir, `npm install --save redux-form`
+123. 
