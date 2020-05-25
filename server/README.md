@@ -222,4 +222,5 @@ from array of strings to array of objects w/email address
 121. Create Dashboard component, import {Link} in it to nav to /surveys/new
 #####ReduxForm Setup
 122. in client dir, `npm install --save redux-form`
-123. 
+123. Import Field component from redux-form in surveyForm, add attr to it
+124. 
