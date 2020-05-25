@@ -226,4 +226,6 @@ from array of strings to array of objects w/email address
 124. SurveyForm renders 4 versions of SurveyField component using map (two
   versions included, lodash one is commented out)
 125. <Field /> components needs key, name, and label props (attr)
-126. 
+126. Added validate function to SurveyForm, some ES6 destructuring of meta
+in SurveyField, and {touched && error} in the form
+127. 
