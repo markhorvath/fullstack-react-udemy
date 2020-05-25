@@ -223,4 +223,7 @@ from array of strings to array of objects w/email address
 #####ReduxForm Setup
 122. in client dir, `npm install --save redux-form`
 123. Import Field component from redux-form in surveyForm, add attr to it
-124. 
+124. SurveyForm renders 4 versions of SurveyField component using map (two
+  versions included, lodash one is commented out)
+125. <Field /> components needs key, name, and label props (attr)
+126. 
