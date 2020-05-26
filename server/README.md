@@ -228,4 +228,7 @@ from array of strings to array of objects w/email address
 125. <Field /> components needs key, name, and label props (attr)
 126. Added validate function to SurveyForm, some ES6 destructuring of meta
 in SurveyField, and {touched && error} in the form
-127. 
+127. Refactored validate logic in SurveyForm
+128. Created validateEmails util func, copied regex code to validate emails and
+implemented it
+129. 

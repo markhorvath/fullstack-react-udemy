@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import SurveyField from './SurveyField';
 import { Link } from 'react-router-dom';
+import validateEmails from '../../utils/validateEmails';
 
 const FIELDS = [
   { label: 'Survey Title', name: 'title', errorMsg: 'You must provide a title' },
@@ -61,11 +62,16 @@ class SurveyForm extends Component {
 function validate(values) {
   const errors = {};
 
+  errors.emails = validateEmails(values.emails || '');
+
+//this may have to be updated later to set errors[name] to a default string like
+//'you must provide a value'
   _.each(FIELDS, ({ name, errorMsg }) => {
     if (!values[name]) {
       errors[name] = errorMsg;
     }
   })
+
   // if (!values.title) {
   //   errors.title = 'You must provide a title';
   // }
