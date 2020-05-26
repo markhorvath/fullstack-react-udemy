@@ -10,10 +10,10 @@ import SurveyField from './SurveyField';
 import { Link } from 'react-router-dom';
 
 const FIELDS = [
-  { label: 'Survey Title', name: 'title' },
-  { label: 'Subject Line', name: 'subject' },
-  { label: 'Email Body', name: 'body' },
-  { label: 'Recipient List', name: 'emails' }
+  { label: 'Survey Title', name: 'title', errorMsg: 'You must provide a title' },
+  { label: 'Subject Line', name: 'subject', errorMsg: 'You must provide a title' },
+  { label: 'Email Body', name: 'body', errorMsg: 'You must provide text for the email body' },
+  { label: 'Recipient List', name: 'emails', errorMsg: 'You must provide a list of email recipients' }
 ]
 //this.props.handleSubmit is provided by reduxForm that's wired up at bottom
 class SurveyForm extends Component {
@@ -61,9 +61,22 @@ class SurveyForm extends Component {
 function validate(values) {
   const errors = {};
 
-  if (!values.title) {
-    errors.title = 'You must provide a title';
-  }
+  _.each(FIELDS, ({ name, errorMsg }) => {
+    if (!values[name]) {
+      errors[name] = errorMsg;
+    }
+  })
+  // if (!values.title) {
+  //   errors.title = 'You must provide a title';
+  // }
+  //
+  // if (!values.subject) {
+  //   errors.title = 'You must provide a subject';
+  // }
+  //
+  // if (!values.body) {
+  //   errors.title = 'You must provide a text for the email body';
+  // }
 
   return errors;
 }
