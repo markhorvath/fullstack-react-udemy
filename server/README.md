@@ -231,4 +231,7 @@ in SurveyField, and {touched && error} in the form
 127. Refactored validate logic in SurveyForm
 128. Created validateEmails util func, copied regex code to validate emails and
 implemented it
-129. 
+129. THERES A REACT/REDUX WARNING here, to fix update react and react-dom to 16.13.1
+by removing the lock file and node_modules in the client dir, then bump up
+React and ReactDOM to 16.13.1 (it's 16.13.0 now)
+130. 

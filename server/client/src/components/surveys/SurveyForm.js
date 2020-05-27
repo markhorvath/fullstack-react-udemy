@@ -66,9 +66,9 @@ function validate(values) {
 
 //this may have to be updated later to set errors[name] to a default string like
 //'you must provide a value'
-  _.each(FIELDS, ({ name, errorMsg }) => {
+  _.each(FIELDS, ({ name }) => {
     if (!values[name]) {
-      errors[name] = errorMsg;
+      errors[name] = 'You must provide a value';
     }
   })
 
