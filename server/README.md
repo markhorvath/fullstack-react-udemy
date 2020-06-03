@@ -234,4 +234,9 @@ implemented it
 129. THERES A REACT/REDUX WARNING here, to fix update react and react-dom to 16.13.1
 by removing the lock file and node_modules in the client dir, then bump up
 React and ReactDOM to 16.13.1 (it's 16.13.0 now)
-130. 
+130. add button in surveyNew for user to go back to surveyForm to review,
+add callback func "onCancel" to set state.showFormReview back to false, then go
+to SurveyFormReview and receive onCancel as prop  
+131. in SurveyForm export default reduxForm, we set destroyOnUnmount to false
+to prevent the form data from being erased from page to page
+132.

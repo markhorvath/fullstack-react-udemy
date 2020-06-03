@@ -88,7 +88,10 @@ function validate(values) {
 }
 
 //reduxForm only requires one property, 'form'
+//destroyOnUnmount is true by default, it destorys form data anytime its no longer
+//on the screen.  we want it to persist so we set it to false
 export default reduxForm({
   validate: validate,
-  form: 'surveyForm'
+  form: 'surveyForm',
+  destroyOnUnmount: false
 })(SurveyForm);
