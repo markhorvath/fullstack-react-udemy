@@ -239,4 +239,5 @@ add callback func "onCancel" to set state.showFormReview back to false, then go
 to SurveyFormReview and receive onCancel as prop  
 131. in SurveyForm export default reduxForm, we set destroyOnUnmount to false
 to prevent the form data from being erased from page to page
-132.
+132. Refactored FIELDS to formFields since we'll use it multiple places
+133. 
