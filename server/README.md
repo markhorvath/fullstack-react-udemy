@@ -244,4 +244,10 @@ to prevent the form data from being erased from page to page
 134. Since submitSurvey action creator is passed as prop to our component because we
 wired up our action creators in the connect statement, so we need to receive This
 as a prop in the component (along with onCancel and formValues)
-135. 
+135. Wired up reduxForm to SurveyNew so that if a user goes to it the formValues
+get destroyed, unlike how we have destroyOnUnmount: false in SurveyForm.  It's
+the default behavior of reduxForm
+136. Change property value 'email' to 'recipients' and also in SurveyForm
+137. Did not define submitSurvey form correctly so fixed that, also passed the prop
+submitSurveys instead of submitSurvey so 134/5 commits were wrong
+138. 

@@ -57,7 +57,7 @@ class SurveyForm extends Component {
 function validate(values) {
   const errors = {};
 
-  errors.emails = validateEmails(values.emails || '');
+  errors.recipients = validateEmails(values.recipients || '');
 
 //this may have to be updated later to set errors[name] to a default string like
 //'you must provide a value'

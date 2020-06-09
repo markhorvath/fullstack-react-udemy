@@ -15,6 +15,7 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey }) => {
       </div>
     );
   });
+  // formValues in submitSurvey() is passed to this as props to this component above
   return (
     <div>
     <h5>Please confirm your entries</h5>
@@ -22,7 +23,7 @@ const SurveyFormReview = ({ onCancel, formValues, submitSurvey }) => {
     <button className="yellow darken-3 white-text btn-flat" onClick={onCancel}>
       Back
     </button>
-    //formValues is passed to this as props to this component above
+
     <button className="green white-text right btn-flat" onClick={() => submitSurvey(formValues)}>
       Send Survey
       <i className="right material-icons">email</i>
