@@ -240,4 +240,8 @@ to SurveyFormReview and receive onCancel as prop
 131. in SurveyForm export default reduxForm, we set destroyOnUnmount to false
 to prevent the form data from being erased from page to page
 132. Refactored FIELDS to formFields since we'll use it multiple places
-133. 
+133. Create submitSurvey action creator, import it into SurveyFormReview
+134. Since submitSurvey action creator is passed as prop to our component because we
+wired up our action creators in the connect statement, so we need to receive This
+as a prop in the component (along with onCancel and formValues)
+135. 
