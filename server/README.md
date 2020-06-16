@@ -255,3 +255,7 @@ but only got 404 in terminal.  Other students had same problem but instructor sa
 just ignore since it'll work down the road.  
 139. Added /api/surveys/webhooks route, changed links for yes/no in email template
 140. `npm install --save lodash path-parser`
+141. Require lodash, Path, and url library in surveyRoutes
+142. Lecture 191: This may be an error.  Still only getting 404s in ngrok to the
+'apis/surveys/webhooks' route, email links dont open (localhost can't provide
+secure connection), and am wary of continuing. 

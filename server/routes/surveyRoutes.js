@@ -1,3 +1,7 @@
+const _ = require('lodash');
+const { Path } = require('path-parser');
+//'url' is a default or integrated module in nodejs, its a library with helpers
+const { URL } = require('url');
 const mongoose = require('mongoose');
 const requireLogin = require('../middlewares/requireLogin');
 const requireCredits = require('../middlewares/requireCredits');
@@ -15,8 +19,15 @@ module.exports = app => {
   });
 
   app.post('/api/surveys/webhooks', (req, res) => {
-    console.log(req.body);
-    res.send({});
+    const events = _.map(req.body, (event) => {
+      //this extracts just the route of the URL, not the domain
+      const pathname = new URL(event.url).pathname;
+
+      //this Path object is used to look at the pathname and extract out the
+      //variables we need (surveyid and choice)
+      const p = new Path('/api/surveys/:surveyId/:choice');
+      console.log(p.test(pathname));
+    });
   });
 
   app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {
