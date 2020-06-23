@@ -26,8 +26,22 @@ module.exports = app => {
       //this Path object is used to look at the pathname and extract out the
       //variables we need (surveyid and choice)
       const p = new Path('/api/surveys/:surveyId/:choice');
-      console.log(p.test(pathname));
+      const match = p.test(pathname);
+      if (match) {
+        return {
+          email: event.email,
+          surveyId: match.surveyId,
+          choice: match.choice
+        };
+      }
     });
+    const compactEvents = _.compact(events);
+    //uniqBy goes thru list of elements, look at email and surveyId property of
+    //each one, and remove any duplicates
+    const uniqueEvents = _.uniqBy(compactEvents, 'email', 'surveyId');
+
+    //this tells sendgrid the request is ok/complete
+    res.send({});
   });
 
   app.post('/api/surveys', requireLogin, requireCredits, async (req, res) => {

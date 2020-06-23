@@ -258,4 +258,7 @@ just ignore since it'll work down the road.
 141. Require lodash, Path, and url library in surveyRoutes
 142. Lecture 191: This may be an error.  Still only getting 404s in ngrok to the
 'apis/surveys/webhooks' route, email links dont open (localhost can't provide
-secure connection), and am wary of continuing. 
+secure connection), and am wary of continuing.
+143. Started branch 'sprint' here, will continue on that.
+144. Update surveyRoutes to return object with email, choice and surveyid
+145. 
