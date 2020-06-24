@@ -261,4 +261,5 @@ just ignore since it'll work down the road.
 secure connection), and am wary of continuing.
 143. Started branch 'sprint' here, will continue on that.
 144. Update surveyRoutes to return object with email, choice and surveyid
-145. 
+145. added .chain refactor to surveyRoutes (lect 194)
+146. 

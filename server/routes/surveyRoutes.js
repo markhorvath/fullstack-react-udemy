@@ -19,27 +19,27 @@ module.exports = app => {
   });
 
   app.post('/api/surveys/webhooks', (req, res) => {
-    const events = _.map(req.body, (event) => {
-      //this extracts just the route of the URL, not the domain
-      const pathname = new URL(event.url).pathname;
+    const p = new Path('/api/surveys/:surveyId/:choice');
 
-      //this Path object is used to look at the pathname and extract out the
-      //variables we need (surveyid and choice)
-      const p = new Path('/api/surveys/:surveyId/:choice');
-      const match = p.test(pathname);
-      if (match) {
-        return {
-          email: event.email,
-          surveyId: match.surveyId,
-          choice: match.choice
-        };
-      }
-    });
-    const compactEvents = _.compact(events);
-    //uniqBy goes thru list of elements, look at email and surveyId property of
-    //each one, and remove any duplicates
-    const uniqueEvents = _.uniqBy(compactEvents, 'email', 'surveyId');
+    const events = _.chain(req.body)
+      .map(({ email, url }) => {
+        //this Path object is used to look at the pathname and extract out the
+        //variables we need (surveyid and choice)
 
+        const match = p.test(new URL(url).pathname);
+        if (match) {
+          return {
+            email,
+            surveyId: match.surveyId,
+            choice: match.choice
+          };
+        }
+      })
+      .compact()
+      .uniqBy('email', 'surveyId')
+      .value();
+
+      console.log(events);
     //this tells sendgrid the request is ok/complete
     res.send({});
   });
