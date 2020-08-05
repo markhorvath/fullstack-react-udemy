@@ -263,4 +263,6 @@ secure connection), and am wary of continuing.
 144. Update surveyRoutes to return object with email, choice and surveyid
 145. added .chain refactor to surveyRoutes (lect 194)
 146. create updateOne query (lect 198)
-147.
+147. Added lastResponded key to data stored in surveyRoutes, also fixed the route for the
+thank you message after a user submits response
+148. 
